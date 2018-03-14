@@ -30,7 +30,7 @@ EXTRA = -sqlDir=$(kentSrc)/hg/lib
 
 include $(kentSrc)/inc/common.mk
 
-DBS = sacCer3 yarLip1
+DBS = sacCer3 yarLip1 malGlo1 malSym1
 
 GSID_DBS = \
 	hiv1 vax004 hivgne8 hivmn hivmn1 hivmn2 hivgne8v2 hivVax003Vax004
