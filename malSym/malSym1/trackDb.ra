@@ -1,0 +1,7 @@
+track gcPercent
+shortLabel GC Percent
+longLabel Percentage GC in 5-Base Windows
+group map
+visibility full
+spectrum on
+type bed 4 +
