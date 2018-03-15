@@ -1,0 +1,14 @@
+track gcPercent
+shortLabel GC Percent
+longLabel Percentage GC in 5-Base Windows
+group map
+visibility full
+spectrum on
+type bed 4 +
+
+track rnaSeq
+shortLabel RNA-seq coverage
+longLabel RNA-seq coverage
+visibility dense
+group rna
+type bigWig 0 500
