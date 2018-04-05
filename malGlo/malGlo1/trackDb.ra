@@ -1,10 +1,18 @@
-track gcPercent
-shortLabel GC Percent
-longLabel Percentage GC in 5-Base Windows
+track gc5Base
+shortLabel GC Percent (5)
+longLabel GC Percent in 5-Base Windows
 group map
-visibility full
-spectrum on
-type bed 4 +
+visibility hide
+autoScale Off
+maxHeightPixels 128:36:16
+graphTypeDefault Bar
+gridDefault OFF
+windowingFunction Mean
+color 0,0,0
+altColor 128,128,128
+viewLimits 30:70
+spanList 5
+type wig 0 100
 
 track rnaSeq
 shortLabel RNA-seq coverage
@@ -12,6 +20,12 @@ longLabel RNA-seq coverage
 visibility dense
 group rna
 type bigWig 0 500
+
+track malGloToMalSym
+shortLabel Chains between malGlo and malSym
+longLabel Chains between malGlo and malSym
+visibility dense
+type chain malSym1
 
 track tRNAs
 shortLabel tRNA Genes
@@ -22,3 +36,59 @@ color 0,20,150
 type bed 12
 nextItemButton on
 priority 10
+
+track ncbi_genes
+shortLabel Genes from NCBI
+longLabel Protein-Coding Genes from NCBI
+group genes
+priority 39
+visibility pack
+color 0,0,255
+type genePred
+hgGene on
+hgsid on
+#directUrl /cgi-bin/hgGene?hgg_gene=%s&hgg_chrom=%s&hgg_start=%d&hgg_end=%d&hgg_type=%s&db=%s
+exonArrows on
+baseColorUseCds given
+baseColorDefault genomicCodons
+
+track malGloMultAlignLocal
+shortLabel MG. Align (L)
+longLabel malGlo Alignment (Local)
+group compGeno
+speciesOrder malGlo1 malCap1 malDer1 malEqu1 malNana1 malPac1 malSym1 malRes1
+visibility dense
+color 0,0,255
+type wigMaf
+viewLimits 0:1
+autoScale off
+maxHeightPixels 50:50:11
+html malGloMultAlignLocal
+
+track selfChain100_90
+shortLabel Self aln >90%id
+longLabel Self alignments with length >100bp, identity >90%
+group varRep
+type chain malGlo1
+
+track selfChain300_70
+shortLabel Self aln >70%id
+longLabel Self alignments with length >300bp, identity >70%
+group varRep
+type chain malGlo1
+
+track gc500Base
+shortLabel GC Percent (500)
+longLabel GC Percent in 500-Base Windows
+group map
+visibility hide
+autoScale Off
+maxHeightPixels 128:36:16
+graphTypeDefault Bar
+gridDefault OFF
+windowingFunction Mean
+color 0,0,0
+altColor 128,128,128
+viewLimits 30:70
+spanList 500
+type wig 0 500
