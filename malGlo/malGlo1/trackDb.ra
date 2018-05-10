@@ -28,7 +28,7 @@ visibility dense
 type chain malSym1
 
 track tRNA
-shortLabel tRNA Genes (updated)
+shortLabel tRNA Genes
 longLabel Transfer RNA Genes Identified with tRNAscan-SE
 group genes
 visibility hide
@@ -38,7 +38,7 @@ nextItemButton on
 priority 10
 
 track ncbi_genes
-shortLabel Genes from NCBI for sure
+shortLabel Genes from NCBI
 longLabel Protein-Coding Genes from NCBI
 group genes
 priority 39
