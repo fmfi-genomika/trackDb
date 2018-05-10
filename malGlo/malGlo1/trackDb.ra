@@ -28,7 +28,7 @@ visibility dense
 type chain malSym1
 
 track tRNA
-shortLabel tRNA Genes
+shortLabel tRNA Genes test
 longLabel Transfer RNA Genes Identified with tRNAscan-SE
 group genes
 visibility hide
