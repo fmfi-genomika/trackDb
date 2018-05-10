@@ -174,3 +174,20 @@ type vcfTabix
 visibility pack
 group varRep
 
+track minion
+shortLabel MinION (pulldown alignments)
+longLabel MinION (pulldown alignments)
+group map
+type bam
+
+track minionbw
+shortLabel MinION (pulldown coverage)
+longLabel MinION (pulldown coverage)
+group map
+type bigWig 0 500
+
+track minionbw2
+shortLabel MinION (control coverage)
+longLabel MinION (control coverage)
+group map
+type bigWig 0 500

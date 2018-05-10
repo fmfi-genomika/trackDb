@@ -7,8 +7,8 @@ spectrum on
 type bed 4 +
 
 track ensGenesLocal
-shortLabel Ensemble Genes (Local)
-longLabel Protein-Coding Genes from Ensemble Genome Database (Local)
+shortLabel Genes from NCBI
+longLabel Protein-Coding Genes from NCBI Database
 group genes
 priority 39
 visibility pack
@@ -19,16 +19,18 @@ hgsid on
 exonArrows on
 baseColorUseCds given
 baseColorDefault genomicCodons
+html NCBIgenes
 
 track ensOtherLocal
-shortLabel Ensemble Other (Local)
-longLabel Other Features from Ensemble Genome Database (Local)
+shortLabel tRNA items from NCBI
+longLabel tRNA items from NCBI Database
 group genes
 priority 39.1
 visibility pack
 color 0,0,255
 type bed 6 +
 exonArrows on
+html tRNAfromNCBI
 
 track tRNA_scan
 shortLabel tRNA Genes
@@ -39,10 +41,11 @@ color 0,20,150
 type bed 12
 nextItemButton on
 priority 10
+html tRNAs
 
 track uniprotStruct
-shortLabel uniProtStruct (L)
-longLabel uniProt/Structure annotation (Local)
+shortLabel uniProtStruct
+longLabel uniProt/Structure annotation
 group genes
 visibility full
 autoScale Off
@@ -57,8 +60,8 @@ type bed 12
 html uniprotStruct
 
 track uniprotAnnot
-shortLabel uniProtAnnot (L)
-longLabel uniProt Protein annotations (Local)
+shortLabel uniProtAnnot
+longLabel uniProt Protein annotations
 group genes
 visibility full
 autoScale Off
@@ -72,3 +75,127 @@ viewLimits 30:70
 type bed 12
 html uniprotAnnot
 
+track malSym1MalGlo1
+shortLabel malSym1-malGlo1
+longLabel Chains from malSym1 to malGlo1
+visibility dense
+type chain malGlo1
+
+track malSymMultAlignLocal
+shortLabel Multiz Alignment (L)
+longLabel malSym Alignment (Local)
+group compGeno
+speciesOrder malGlo1 malNana1 malCap1 malDer1 malEqu1 malPac1 malRes1
+visibility dense
+color 0,0,255
+type wigMaf
+viewLimits 0:1
+autoScale off
+maxHeightPixels 50:50:11
+html malSymMultAlignLocal
+
+track selfChain100_90
+shortLabel Self aln90
+longLabel Self alignments with length >100bp, identity >90%
+group varRep
+type chain malSym1
+
+track selfChain300_70
+shortLabel Self aln70
+longLabel Self alignments with length >300bp, identity >70%
+group varRep
+type chain malSym1
+
+track strain_difference
+compositeTrack on
+type vcfTabix
+shortLabel StrainDifference 
+longLabel Difference of main strain ATCC 42132 against strain KS004, KS024, KS292, KS327, ATCC96806, ATCC44340
+group varRep
+visibility hide
+
+#subtracks
+track diff_KS004
+parent strain_difference on
+shortLabel diff_KS004
+longLabel diff_KS004 strain
+visibility hide
+type vcfTabix
+group varRep
+#parent strain_difference
+
+
+track diff_KS024
+parent strain_difference on
+shortLabel diff_KS024
+longLabel diff_KS024 strain
+visibility hide
+type vcfTabix
+group varRep
+
+track diff_KS292
+parent strain_difference on
+shortLabel diff_KS292
+longLabel diff_KS292 strain
+visibility hide
+type vcfTabix
+group varRep
+
+
+track diff_KS327
+parent strain_difference on
+shortLabel diff_KS327
+longLabel diff_KS327 strain
+visibility hide
+type vcfTabix
+group varRep
+
+track diff_ATCC44340
+parent strain_difference on
+shortLabel diff_ATCC44340
+longLabel diff_ATCC44340 strain
+visibility hide
+type vcfTabix
+group varRep
+
+track diff_ATCC96806
+parent strain_difference on
+shortLabel diff_ATCC96806
+longLabel diff_ATCC96806 strain
+visibility hide
+type vcfTabix
+group varRep
+
+track self100_90prot
+shortLabel Self aln >90%id
+longLabel Self alignments with length >100bp, identity >90%
+group varRep
+type chain malSym1
+
+track self300_70prot
+shortLabel Self aln >90%id
+longLabel Self alignments with length >100bp, identity >90%
+group varRep
+type chain malSym1
+
+track proteinChains
+shortLabel Protein chains
+longLabel Chains from protein alignments
+group varRep
+type chain malGlo1
+
+track malSym1AlignConsLocal
+shortLabel phastCons
+longLabel Conservation new
+group compGeno
+visibility full
+noInherit on
+configurable on
+type wig -5 5
+maxHeightPixels 100:50:11
+viewLimits -1:2
+autoScale off
+spanList 1
+windowingFunction mean
+color 40,40,120
+altColor 120,40,40

@@ -27,7 +27,7 @@ longLabel Chains between malGlo and malSym
 visibility dense
 type chain malSym1
 
-track tRNAs
+track tRNA
 shortLabel tRNA Genes
 longLabel Transfer RNA Genes Identified with tRNAscan-SE
 group genes
@@ -53,10 +53,10 @@ baseColorUseCds given
 baseColorDefault genomicCodons
 
 track malGloMultAlignLocal
-shortLabel MG. Align (L)
-longLabel malGlo Alignment (Local)
+shortLabel Multiz Alignment (L)
+longLabel malGlo Alignment with similar species (Local)
 group compGeno
-speciesOrder malGlo1 malCap1 malDer1 malEqu1 malNana1 malPac1 malSym1 malRes1
+speciesOrder malCap1 malDer1 malEqu1 malNana1 malPac1 malSym1 malRes1
 visibility dense
 color 0,0,255
 type wigMaf
@@ -95,9 +95,9 @@ type wig 0 500
 
 track uniprotStruct
 shortLabel uniProtStruct (L)
-longLabel uniProt/Structure annotation (Local)
+longLabel uniProt Structure annotation (Local)
 group genes
-visibility full
+visibility pack
 autoScale Off
 maxHeightPixels 128:36:16
 graphTypeDefault Bar
@@ -113,7 +113,7 @@ track uniprotAnnot
 shortLabel uniProtAnnot (L)
 longLabel uniProt Protein annotations (Local)
 group genes
-visibility full
+visibility pack
 autoScale Off
 maxHeightPixels 128:36:16
 graphTypeDefault Bar
@@ -124,3 +124,39 @@ altColor 128,128,128
 viewLimits 30:70
 type bed 12
 html uniprotAnnot
+
+track strain_CBS7874
+shortLabel CBS7874
+longLabel Difference of reference (CBS7966) against CBS7874 strain
+visibility hide
+type vcfTabix
+group varRep
+
+track strain_CBS7990
+shortLabel CBS7990
+longLabel Difference of reference (CBS7966) against CBS7990 strain
+visibility hide
+type vcfTabix
+group varRep
+
+track proteinChains 
+shortLabel Protein chains
+longLabel Chains from protein alignments 
+group varRep 
+type chain malSym1
+
+track phyloPalign_local
+shortLabel Align Cons. (local)
+longLabel New Alignment Conservation by PhyloP (local)
+group compGeno
+visibility full
+noInherit on
+configurable on
+type wig -14.08 6.42
+maxHeightPixels 100:50:11
+viewLimits -4:4
+autoScale off
+spanList 1
+windowingFunction mean
+color 40,40,120
+altColor 120,40,40
